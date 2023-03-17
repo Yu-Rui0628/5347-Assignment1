@@ -254,9 +254,16 @@ function nonec(){
 }
 
 function reset(){
-    var cartshow = document.getElementById("cartnum");
-    localStorage.clear();
-    cartshow.textContent = "0";
+    let result = confirm("Do you want to continue?");
+    if (result) {
+        var cartshow = document.getElementById("cartnum");
+        localStorage.clear();
+        cartshow.textContent = "0";
+        
+    } else {
+        console.log("You clicked No");
+    }
+    
 }
 
 
