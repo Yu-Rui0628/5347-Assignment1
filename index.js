@@ -202,6 +202,35 @@ function Searchfun(bookli,inputs){
     
 }
 
+function checkboxonly(){
+    const checkboxes = document.getElementsByName("myCheckbox");
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener("click", function() {
+          // uncheck all checkboxes except for the one that was just clicked
+          for (let j = 0; j < checkboxes.length; j++) {
+            if (checkboxes[j] !== this) {
+              checkboxes[j].checked = false;
+            }
+          }
+        });
+}
+}
+
+
+function uncheckbox(){
+    const checkboxes = document.getElementsByName("myCheckbox");
+    for (let i = 0; i < checkboxes.length; i++) {
+        
+          // uncheck all checkboxes except for the one that was just clicked
+          for (let j = 0; j < checkboxes.length; j++) {
+            
+              checkboxes[j].checked = false;
+            
+          }
+      
+}
+}
+
 
 function DarkMode(){
     var myCheckbox = document.getElementById("vehicle1");
@@ -219,11 +248,6 @@ function addcart(){
    var showcart = document.getElementById("displaycart");
    
    showcart.style.display = "inline";
-
-
-
-
-
 
 }
 
@@ -260,6 +284,7 @@ function nonec(){
     
    
     showcart.style.display = "none";
+    uncheckbox();
 }
 
 function reset(){
@@ -328,6 +353,10 @@ window.onload = function(){
                         }
                     }
 
+                    if(b4.length === 0){
+                        alert("Cannot find related category!");
+                    }
+
                     // var commonElements = a.filter(value => b4.includes(value));
                     // document.getElementById("myBody").innerHTML = "";
                     // productlist(b4);
@@ -354,14 +383,23 @@ window.onload = function(){
                 document.getElementById("myBody").innerHTML = "";
                 productlist(b4,a);
                 
-                
             }
-            
+
+
+            function ok2(){
+                var inputcom = document.getElementById("searchb").value.toUpperCase();
+                if(inputcom == ""){
+                    alert("Input something but search!");
+                }
+            }
             but1.addEventListener('click',ok1);
             but2.addEventListener('click',ok1);
+            but1.addEventListener('click',ok2);
             cart1.addEventListener('click',addcart);
             cart2.addEventListener('click',reset);
             cart3.addEventListener('click',nonec);
+
+            checkboxonly()
 
         },
         function(xhr) { console.error(xhr); }
