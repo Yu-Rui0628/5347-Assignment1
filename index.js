@@ -234,14 +234,24 @@ function uncheckbox(){
 
 function DarkMode(){
     var myCheckbox = document.getElementById("vehicle1");
+    
+    var ti = document.getElementById("h1title");
+    var tableb = document.getElementById("myBody");
             myCheckbox.addEventListener("change", function() {
-            if (this.checked) {
-                document.body.style.backgroundColor = "#60676b";
-                console.log("Checkbox is checked.");
-            } else {
-                document.body.style.backgroundColor = "white";
-                console.log("Checkbox is unchecked.");
-            }
+                if (this.checked) {
+                    document.body.style.backgroundColor = "#60676b";
+                    tableb.style.backgroundColor = "#60676b";
+                    ti.style.color = "white";
+                    tableb.style.color = "white";
+                    console.log("Checkbox is checked.");
+                } else {
+                    
+                    document.body.style.backgroundColor = "white";
+                    tableb.style.backgroundColor = "white";
+                    ti.style.color = "black";
+                    tableb.style.color = "black";
+                    console.log("Checkbox is unchecked.");
+                }
             });
 }
 function addcart(){
@@ -374,9 +384,7 @@ window.onload = function(){
                         }
                     }
 
-                    if(b4.length === 0){
-                        alert("Cannot find related category!");
-                    }
+                    
 
                     // var commonElements = a.filter(value => b4.includes(value));
                     // document.getElementById("myBody").innerHTML = "";
@@ -385,19 +393,25 @@ window.onload = function(){
                     console.log("The a list is" + a);
                     
                     b4 = bookList;
+                 
+
                     a = [];
                     // document.getElementById("myBody").innerHTML = "";
                     // productlist(b4);
                 }
-                
+                if(inputcom != ""){
                 for(var j = 0;j < b4.length;j ++){
-                    if(inputcom != ""){
+                    
                         if(b4[j]["title"].toUpperCase().indexOf(inputcom) != -1){
                             console.log("The b4 list " + b4[j]["title"]);
                             console.log("Added the b4 LIST " + j)
                             a[k++] = b4[j]["title"];
                             console.log("The value of a:" + a + " The value of Input" + inputcom);
                         }
+                    }
+
+                    if(a.length ===0){
+                        alert("Cannot Find the search keyword!");
                     }
                     
                 }
@@ -410,7 +424,7 @@ window.onload = function(){
             function ok2(){
                 var inputcom = document.getElementById("searchb").value.toUpperCase();
                 if(inputcom == ""){
-                    alert("Input something but search!");
+                    alert("Input something before search!");
                 }
             }
             but1.addEventListener('click',ok1);
