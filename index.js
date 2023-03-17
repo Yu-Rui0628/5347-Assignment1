@@ -222,11 +222,11 @@ function uncheckbox(){
     for (let i = 0; i < checkboxes.length; i++) {
         
           // uncheck all checkboxes except for the one that was just clicked
-          for (let j = 0; j < checkboxes.length; j++) {
+          
             
-              checkboxes[j].checked = false;
+              checkboxes[i].checked = false;
             
-          }
+          
       
 }
 }
@@ -247,7 +247,28 @@ function DarkMode(){
 function addcart(){
    var showcart = document.getElementById("displaycart");
    
-   showcart.style.display = "inline";
+
+    const checkboxes = document.getElementsByName("myCheckbox");
+
+    var result = false;
+     for (let i = 0; i < checkboxes.length; i++) {
+         
+             if (checkboxes[i].checked == true)
+             {
+                 result = true;
+             }
+               
+           
+       
+     }
+     if(!result){
+         alert("Please select a book first!");
+     }
+     else{
+        showcart.style.display = "inline";
+     }
+     
+   
 
 }
 
@@ -399,7 +420,8 @@ window.onload = function(){
             cart2.addEventListener('click',reset);
             cart3.addEventListener('click',nonec);
 
-            checkboxonly()
+            checkboxonly();
+   
 
         },
         function(xhr) { console.error(xhr); }
