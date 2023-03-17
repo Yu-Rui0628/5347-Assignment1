@@ -75,9 +75,11 @@ function productlist(bookli,colorli){
                 // row.style.backgroundColor = "blue";
                 
                 if(numoflist2 != 0){
+                    console.log("The red appear!!");
                     for (var n4 = 0; n4 < colorli.length;n4++){
                         if(bookli[i]["title"] == colorli[n4]){
                             row.style.backgroundColor = "red";
+                            console.log("PUT RED!");
                         }
 
                     }
@@ -232,17 +234,24 @@ function nonec(){
     let inputnum = parseInt(cartnum.value);
 
     if (localStorage.getItem('cartnum') == null) {
-        localStorage.setItem("cartnum", inputnum);
+        var set1 = "(" + inputnum + ")";
+        localStorage.setItem("cartnum", set1);
         var nn = localStorage.getItem("cartnum");
         cartshow.textContent = nn;
         console.log("The local storage is null");
       } else {
         if(inputnum.length !== 0)
         {
-            var carn1 = parseInt(localStorage.getItem("cartnum"));
+            var give = localStorage.getItem("cartnum");
+            var res = give.replace(/\D/g, "");// use a regular expression to remove all non-numeric characters
+            
+            var carn1 = parseInt(res);
+            
+
             var newv = carn1 + inputnum;
+            console.log(carn1 + " " + newv);
             console.log("The new num is" + newv);
-            localStorage.setItem("cartnum", newv);
+            localStorage.setItem("cartnum", "("+newv+")");
         }
         var nn = localStorage.getItem("cartnum");
         cartshow.textContent = nn;
@@ -258,7 +267,7 @@ function reset(){
     if (result) {
         var cartshow = document.getElementById("cartnum");
         localStorage.clear();
-        cartshow.textContent = "0";
+        cartshow.textContent = "(0)";
         
     } else {
         console.log("You clicked No");
@@ -275,7 +284,7 @@ window.onload = function(){
     getJsonObject('data.json',
         function(data) {
             
-           
+            localStorage.setItem("cartnum", "(0)");
             DarkMode();
             var cartshow = document.getElementById("cartnum");
             var nn = localStorage.getItem("cartnum");
@@ -323,22 +332,28 @@ window.onload = function(){
                     // document.getElementById("myBody").innerHTML = "";
                     // productlist(b4);
                 }else{
-                    console.log(a);
+                    console.log("The a list is" + a);
+                    
                     b4 = bookList;
+                    a = [];
                     // document.getElementById("myBody").innerHTML = "";
                     // productlist(b4);
                 }
                 
                 for(var j = 0;j < b4.length;j ++){
-
-                    if(b4[j]["title"].toUpperCase().indexOf(inputcom) != -1){
-                        a[k++] = bookList[j]["title"];
-                        
+                    if(inputcom != ""){
+                        if(b4[j]["title"].toUpperCase().indexOf(inputcom) != -1){
+                            console.log("The b4 list " + b4[j]["title"]);
+                            console.log("Added the b4 LIST " + j)
+                            a[k++] = b4[j]["title"];
+                            console.log("The value of a:" + a + " The value of Input" + inputcom);
+                        }
                     }
+                    
                 }
                 document.getElementById("myBody").innerHTML = "";
                 productlist(b4,a);
-                console.log(a);
+                
                 
             }
             
