@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   <meta charset="utf-8">
+   <title>COMP5347 Assignment One</title>
+   <link rel="stylesheet" href="index.css" />
+   <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+   <h1 id = "h1title">AZ Book Online Store</h1>
+
+
+
+   <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+   <label for="vehicle1"> Dark Mode</label>
+
+
+
+
+   <form method="get" action="">
+      <div id="searchBox">
+         <input type="text" placeholder="Search.." name="search" id = "searchb">
+         <button id = "btn" type = "button">Search</button>
+         <select id = "selectbox" name = "where">
+            <option value="default" selected="selected">Select Category</option>
+            <option value="Art">Art</option>
+            <option value="Science History">Science History</option>
+            <option value="Action and Adventure">Action and Adventure</option>
+            <option value="Health">Health</option>
+            <option value="Science Fiction">Science Fiction</option>
+         </select>
+         <button id = "btn2" type="button">Filter</button>
+         <button id = "Addcart" type="button">Add to carts</button>
+         <button id = "resetcart" type="button">reset the carts</button>
+         
+         
+
+         <img id = "cartimage" src="images/shopping_cart.png" alt="Image description" >
+
+         <span id="cartnum">(0)</span>
+         <div id = "displaycart">
+            <input type="text" placeholder="input book number.." name="add cart" id = "addcartbox">
+            <button id = "addcartboxbtn" type = "button">Submit</button>
+         </div>
+        
+      </div>
+      <div id="listBox">
+         <table id="myTable">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th>Title</th>
+                <th></th>
+                <th>Authors</th>
+                <th>Year</th>
+                <th>Price</th>
+                <th>Publisher</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody id = "myBody">
+            </tbody>
+          </table>
+      </div>   
+   </form>
+</body>
+</html>
