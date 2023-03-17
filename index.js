@@ -384,7 +384,9 @@ window.onload = function(){
                         }
                     }
 
-                    
+                    if(b4.length === 0){
+                        alert("Cannot find related category");
+                    }
 
                     // var commonElements = a.filter(value => b4.includes(value));
                     // document.getElementById("myBody").innerHTML = "";
@@ -427,6 +429,7 @@ window.onload = function(){
                     alert("Input something before search!");
                 }
             }
+            checkboxonly();
             but1.addEventListener('click',ok1);
             but2.addEventListener('click',ok1);
             but1.addEventListener('click',ok2);
@@ -434,7 +437,7 @@ window.onload = function(){
             cart2.addEventListener('click',reset);
             cart3.addEventListener('click',nonec);
 
-            checkboxonly();
+            
    
 
         },
