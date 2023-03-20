@@ -424,6 +424,7 @@ window.onload = function(){
                 }
                 document.getElementById("myBody").innerHTML = "";
                 productlist(b4,a);
+                checkboxonly();
                 
             }
 
@@ -434,14 +435,14 @@ window.onload = function(){
                     alert("Input something before search!");
                 }
             }
-            checkboxonly();
+            
             but1.addEventListener('click',ok1);
             but2.addEventListener('click',ok1);
             but1.addEventListener('click',ok2);
             cart1.addEventListener('click',addcart);
             cart2.addEventListener('click',reset);
             cart3.addEventListener('click',nonec);
-
+            checkboxonly();
             
    
 
