@@ -13,7 +13,7 @@ function getJsonObject(path, success, error) {
     xhr.send();
 }
 
-function createstar(score){
+function createstar(){
     const starContent = "&#9733;"; 
     var di = document.createElement("div");
     var spa1 = document.createElement("span");
@@ -73,13 +73,18 @@ function productlist(bookli,colorli){
                 const m = document.createElement("span");
 
                 // row.style.backgroundColor = "blue";
-                
+                var myCheckbox = document.getElementById("vehicle1");
                 if(numoflist2 != 0){
                     console.log("The red appear!!");
                     for (var n4 = 0; n4 < colorli.length;n4++){
                         if(bookli[i]["title"] == colorli[n4]){
-                            row.style.backgroundColor = "red";
+                            if(myCheckbox.checked){
+                                row.style.backgroundColor = "blue";
+                            }else{
+                                row.style.backgroundColor = "red";
                             console.log("PUT RED!");
+                            }
+                            
                         }
 
                     }
