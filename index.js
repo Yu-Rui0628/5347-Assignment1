@@ -236,6 +236,14 @@ function uncheckbox(){
 }
 }
 
+function checkInp(m)
+{
+  if (isNaN(m)) 
+  {
+    return false;
+  }
+}
+
 
 function DarkMode(){
     var myCheckbox = document.getElementById("vehicle1");
@@ -287,11 +295,17 @@ function addcart(){
 
 }
 
+
 function nonec(){
     var cartnum = document.getElementById("addcartbox");
     var showcart = document.getElementById("displaycart");
     var cartshow = document.getElementById("cartnum");
-    let inputnum = parseInt(cartnum.value);
+    let inputnum = 0;
+
+    inputnum = parseInt(cartnum.value);
+  
+   
+    
 
     if (localStorage.getItem('cartnum') == null) {
         var set1 = "(" + inputnum + ")";
@@ -309,9 +323,16 @@ function nonec(){
             
 
             var newv = carn1 + inputnum;
-            console.log(carn1 + " " + newv);
+            if(newv !=  newv){
+                alert("Please input the number!");
+                
+            }else{
+                console.log(carn1 + " " + newv);
             console.log("The new num is" + newv);
             localStorage.setItem("cartnum", "("+newv+")");
+                
+            }
+            
         }
         var nn = localStorage.getItem("cartnum");
         cartshow.textContent = nn;
